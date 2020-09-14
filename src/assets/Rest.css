@@ -1,0 +1,30 @@
+.Rest {
+  text-align: center;
+}
+
+
+.Rest {
+  background-color: #ffb158 ;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  color: white;
+}
+.Rest p{
+  margin: 0px;
+  font-size: calc(40px + 1vmin);
+}
+
+.RestTable {
+  background-color: #ffb158 ;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  color: white;
+}
