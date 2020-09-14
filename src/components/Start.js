@@ -1,6 +1,6 @@
 import React from 'react';
 import '../assets/Start.css'
-import { Button, Space } from 'antd';
+import { Button } from 'antd';
 import Task from './Task';
 import Rest from './Rest';
 
@@ -34,7 +34,7 @@ class Start extends React.Component {
         localStorage.removeItem('tasks')
 
         this.props.data.checkedTasks.forEach(element => {
-            savedTasks = savedTasks.filter(item => item.desc != element.task)
+            savedTasks = savedTasks.filter(item => item.desc !== element.task)
         });
         console.log(savedTasks)
         localStorage.setItem('tasks', JSON.stringify(savedTasks))
@@ -49,7 +49,7 @@ class Start extends React.Component {
     //   localStorage.setItem('tasks',JSON.stringify(this.state.tasks))
     // })
     var tasks = localStorage.getItem('tasks')
-    var savedTasks = new Array()
+    var savedTasks = []
     if(tasks){
       savedTasks = JSON.parse(tasks)
     }

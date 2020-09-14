@@ -44,7 +44,7 @@ class Task extends React.Component {
         var savedTasks = 0
         if(localStorage.getItem('tasks'))   {
             var storage = JSON.parse(localStorage.getItem('tasks'))
-            savedTasks = storage[storage.length - 1].key
+            if(storage.length !== 0) savedTasks = storage[storage.length - 1].key
         }
         
         var task = {
