@@ -21,7 +21,6 @@ class Start extends React.Component {
   componentDidMount(){
     // console.log(localStorage.getItem('tasks'))
     if(this.props.data){
-      console.log(this.props.data)
       //add enteredTask from Task.js to the tasks array state
       if(this.props.data.enteredTask){
         //check if tasks have that task?
@@ -29,14 +28,12 @@ class Start extends React.Component {
       }
       // Filter tasks with checked ones
       if(this.props.data.checkedTasks){
-        console.log(this.props.data.checkedTasks)
         var savedTasks = JSON.parse(localStorage.getItem('tasks'))
         localStorage.removeItem('tasks')
 
         this.props.data.checkedTasks.forEach(element => {
             savedTasks = savedTasks.filter(item => item.desc !== element.task)
         });
-        console.log(savedTasks)
         localStorage.setItem('tasks', JSON.stringify(savedTasks))
       }
 
@@ -44,7 +41,6 @@ class Start extends React.Component {
   }
 
   handleEnteredTask(enteredTask){
-    console.log(enteredTask)
     // this.setState({tasks: this.state.tasks.concat([enteredTask])}, ()=>{
     //   localStorage.setItem('tasks',JSON.stringify(this.state.tasks))
     // })
@@ -54,10 +50,7 @@ class Start extends React.Component {
       savedTasks = JSON.parse(tasks)
     }
     savedTasks.push(enteredTask)
-    console.log(savedTasks)
     localStorage.setItem('tasks',JSON.stringify(savedTasks))
-    console.log(JSON.parse(localStorage.getItem('tasks')))
-    
   }
 
   handleAddClick(){

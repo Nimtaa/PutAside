@@ -40,7 +40,6 @@ class Rest extends React.Component {
     
         // var storedTasks = this.props.data.data
         var storedTasks = JSON.parse(localStorage.getItem('tasks'))
-        console.log(storedTasks)
         var numTasks = storedTasks.length
         
         storedTasks.sort(function(a, b) {
@@ -48,12 +47,10 @@ class Rest extends React.Component {
             keyB = b.time;
             return (keyA - keyB);
         });
-        console.log("Sorted:", storedTasks)
 
         var sum = 0, data = [];
         for(var i =0; i<numTasks; i++){
             sum += Number(storedTasks[i].time)
-            console.log("sum",sum);
             if(sum <= Number(value)) {
                 data.push(
                     {
@@ -67,14 +64,13 @@ class Rest extends React.Component {
         })
     }
     handleClickHome(){       
-        console.log("Clicked to home")
         this.setState({showStart : true, showTable: false})
     }
     handleSelectRow (selectedRowKeys, selectedRows) {
 
         const selectedTask = selectedRows[selectedRows.length - 1] 
         const dataSource = [...this.state.data];
-        message.success(selectedTask.task + ' has done!');
+        message.success(selectedTask.task + ' Completed!');
         this.setState(
             {data : dataSource.filter(item => item.task !== selectedTask.task)}, () =>{
                 this.setState({checkedTasks : [...this.state.checkedTasks, selectedTask]})
