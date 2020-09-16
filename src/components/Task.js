@@ -40,9 +40,9 @@ class Task extends React.Component {
     }
 
     handleClick(){
-
         var savedTasks = 0
-        if(localStorage.getItem('tasks'))   {
+        console.log(localStorage.getItem('tasks'))
+        if(localStorage.getItem('tasks') !== null)   {
             var storage = JSON.parse(localStorage.getItem('tasks'))
             if(storage.length !== 0) savedTasks = storage[storage.length - 1].key
         }
