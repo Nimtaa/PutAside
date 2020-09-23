@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/index.css';
 import  Start from './components/Start';
+import SideNote from './components/SideNote';
 import 'antd/dist/antd.css';
 import * as serviceWorker from './serviceWorker';
 

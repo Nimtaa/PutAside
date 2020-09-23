@@ -3,6 +3,7 @@ import '../assets/Start.css'
 import { Button } from 'antd';
 import Task from './Task';
 import Rest from './Rest';
+import SideNote from './SideNote';
 
 class Start extends React.Component {
   constructor(props) {
@@ -10,11 +11,13 @@ class Start extends React.Component {
     this.state = {
         showStart: true,
         showRest : false,
+        showAddTask: false,
+        showAddSideNote: false,
         tasks : []
     };
     this.handleAddClick = this.handleAddClick.bind(this)
     this.handleRestClick = this.handleRestClick.bind(this)
-    // this.handleResetClick = this.handleResetClick(this)
+    this.handleAddSideNoteClick = this.handleAddSideNoteClick.bind(this)
     this.handleEnteredTask = this.handleEnteredTask.bind(this)
   }
 
@@ -54,19 +57,16 @@ class Start extends React.Component {
   }
 
   handleAddClick(){
-    this.setState({showStart: false});
+    this.setState({showStart:false, showAddTask:true, showRest:false, showAddSideNote:false});
   }
   
   handleRestClick(){
-    this.setState({showStart: false}, () =>{
-      this.setState({showRest : true})
-    })
+    this.setState({showStart:false, showAddTask:false, showRest:true, showAddSideNote:false});
   }
 
-  // handleResetClick(){
-  //   localStorage.clear()
-  //   console.log("localstorage cleared")
-  // }
+  handleAddSideNoteClick(){
+    this.setState({showStart:false, showAddTask:false, showRest:false, showAddSideNote:true});
+  }
 
   render(){
     if(this.state.showStart){
@@ -75,6 +75,7 @@ class Start extends React.Component {
             <header className="App-header">
                 <p>What do you want to do?</p>
                 <div className="Button-container">
+                    <Button block ghost onClick={this.handleAddSideNoteClick}>Add Side Note</Button>
                     <Button block ghost onClick={this.handleAddClick}>Add Task</Button>
                     <Button type = "primary" block onClick={this.handleRestClick}>Rest</Button>
                     {/* <Button type = "primary" block onClick={this.handleResetClick}>Reset Tasks</Button> */}
@@ -83,11 +84,14 @@ class Start extends React.Component {
         </div>
       );
     }
-    else if(!this.state.showRest){
+    if(this.state.showAddTask){
       return(<Task data={this.state.tasks.length}></Task>)
     }
-    else{
+    if(this.state.showRest){
       return (<Rest></Rest>)
+    }
+    if(this.state.showAddSideNote){
+      return (<SideNote></SideNote>)
     }
     
   }

@@ -1,0 +1,20 @@
+.SideNote {
+    text-align: center;
+    background-color: #ffb158 ;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(15px + 2vmin);
+    color: white;
+  }
+  .SideNote p{
+    font-size: larger
+  }
+  #InputText {
+      width: 300px;
+      height: 150px;
+  }
+  
+  
