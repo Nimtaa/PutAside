@@ -12,8 +12,9 @@ class SideNote extends React.Component {
         super(props);
         this.state = {
             inputValue : "",
+            enteredNote: {},
+            showStart: false
         };
-        
         this.handleClick = this.handleClick.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
     }
@@ -23,10 +24,18 @@ class SideNote extends React.Component {
     }
 
     handleClick(){
-        
+        var note = {
+            'note': this.state.inputValue
+        }
+        this.setState({enteredNote: note, showStart: true})
     }
 
     render(){
+        if(this.state.showStart){
+            return(
+                <Start data = {this.state}></Start>
+            )
+        }
         return(
             <div className="SideNote">
                 <p>Write your Side Note</p>

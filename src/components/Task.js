@@ -61,6 +61,7 @@ class Task extends React.Component {
             showStart: true
         })
     }
+    
     render(){
         if(!this.state.showStart){
             return (   
