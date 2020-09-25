@@ -66,7 +66,7 @@ class Task extends React.Component {
         if(!this.state.showStart){
             return (   
                 <div className="Task">
-                    <p>Hmm..! What task? How much time?</p>
+                    <p>What task? How much time?</p>
                     <div className="Task-container">
                         <Space>
                             <Input style={{width : 250}} placeholder="Explain..." onChange={this.handleInputChange}/>

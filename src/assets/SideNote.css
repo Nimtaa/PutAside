@@ -5,16 +5,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     font-size: calc(15px + 2vmin);
     color: white;
-  }
-  .SideNote p{
-    font-size: larger
-  }
-  #InputText {
-      width: 300px;
-      height: 150px;
-  }
+}
+
+
   
-  
+.SideNote p{
+  font-size: larger;
+  margin-top: 100px;
+}
+#InputText {
+    width: 300px;
+    height: 150px;
+}
+
